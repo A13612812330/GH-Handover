@@ -15,7 +15,7 @@
 |---|---|---|
 | 归属 | 个人账号 `A13612812330` | 组织 `GHZS-Project` |
 | 仓库数 | 10 个散在个人名下 | 11 个（10 业务 + 1 入口）集中在组织下 |
-| 交接方式 | 逐个加 collaborator | 把对方加入组织 **Owner**，一次覆盖全部 |
+| 交接方式 | 逐个加 collaborator | **不需要加成员**：全部公开 + MIT，clone 即用 |
 | 旧链接 | — | **301 自动重定向**到新地址，已发出的链接不会断 |
 
 迁移验证方式（不是看页面 200，而是比内容）：迁移前后逐个核对 `commit sha`，**10 个业务仓库 sha 完全不变**；
@@ -94,9 +94,12 @@
 | 1 | `GH-CloudGame` README 写「jsdom 不装也行，09 会跳过」，**实测是直接报 `[环境自检未通过]` 中止** | 照文档走会卡住 | 已在 `prompts/01-CloudGame.md` 里写成必装；建议顺手改 README |
 | 2 | `GH-GameNews` 仓库 177 MB（历史归档大文件） | 首次 clone 慢 | 用 `--depth 1` 浅克隆 |
 | 3 | `GH-GameSearch` 的 `.github/workflows/android.yml` 未推送 | 仓库内无 CI | 需 `gh auth refresh -s workflow` 后才能推 |
-| 4 | 6 个仓库无 LICENSE 文件 | 内部交接无碍 | 对外发布前补 |
-| 5 | 10 个仓库均未启用 GitHub Pages | 想看网页版需本地起服务 | 需要时再开 |
+| 4 | ~~6 个仓库无 LICENSE 文件~~ | — | **已解决 2026-10-26**：11 个仓库统一标准 MIT，均被 GitHub 识别 |
+| 5 | ~~均未启用 GitHub Pages~~ | — | **已启用 2026-10-26**：<https://ghzs-project.github.io/GH-Handover/> |
 | 6 | `GH-Game-Puton` 无成品包 | 接手人必须自己打包 | 建议补一个 Release |
+
+> 许可证补充说明：原 `GH-Gamehub` 有 MIT 文本但末尾附了 7 行中文数据来源声明，GitHub 识别引擎判为 `NOASSERTION`（徽章不显示 MIT）。
+> 修法是把声明拆到独立 `NOTICE.md`，`LICENSE` 只保留 21 行标准原文 —— 这是 GitHub 识别的硬要求，以后改 LICENSE 不要往里加任何说明文字。
 
 ---
 

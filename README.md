@@ -1,11 +1,13 @@
 # GH 系列项目 · 交接总入口
 
-> 组织：[**GHZS-Project**](https://github.com/GHZS-Project)　·　**10 个业务项目** + 本交接入口 = 11 个仓库　·　全部已公开
-> 本页是所有 GH 项目的唯一入口。想快速上手，看[第 2 节](#2-拿到就跑最快的三个)；想让 AI Agent 干活，复制 [PROMPTS.md](PROMPTS.md) 里的段落。
+> 组织：[**GHZS-Project**](https://github.com/GHZS-Project)　·　**10 个业务项目** + 本交接入口 = 11 个仓库　·　全部公开　·　全部 **MIT License**
+>
+> **网页版总览：[ghzs-project.github.io/GH-Handover](https://ghzs-project.github.io/GH-Handover/)** ← 不熟悉 GitHub 的人看这个，点开就是项目墙
+> 本页是 Markdown 版入口。想快速上手，看[第 2 节](#2-拿到就跑最快的三个)；想让 AI Agent 干活，复制 [PROMPTS.md](PROMPTS.md) 里的段落。
 >
 > 🔗 **双向可达**：10 个仓库的 README 顶部都已挂上回到本页的链接，从任何一个仓库都能找回总目录。
 >
-> 👥 **交接只需一步**：所有仓库都在 `GHZS-Project` 组织下，把对方加入组织 **Owner** 即可覆盖全部，不必逐个加 collaborator。
+> **不需要加成员**：11 个仓库全部公开且采用 MIT 许可，任何人 clone 下来就能用、能改、能再分发，无需组织权限。
 
 ---
 
@@ -134,7 +136,8 @@ python scripts/doctor.py                    # 8 项检查
 
 ```
 GH-Handover/
-├── README.md         ← 你正在看的入口页
+├── index.html        ← GitHub Pages 门户页（对外版，已脱敏，由 tools/build-pages.py 生成）
+├── README.md         ← 你正在看的入口页（Markdown 版，信息最全）
 ├── PROMPTS.md        ← 10 段 agent prompt 合集（复制用）
 ├── HANDOVER.md       ← 审计结论、实测记录、遗留待办
 ├── prompts/          ← 每段 prompt 单独成文件，有独立链接
@@ -150,6 +153,8 @@ GH-Handover/
 │   └── 09-Game-Puton.md
 └── tools/            ← 维护脚本（一般不用碰）
     ├── build-prompts.py   # 由 prompts/ 重新生成 PROMPTS.md（幂等）
+    ├── build-pages.py     # 生成 index.html（构建时校验每个仓库仍公开且为 MIT）
+    ├── add-license.py     # 给 11 个仓库统一写入 MIT LICENSE（幂等）
     ├── add-backlink.py    # 给 10 个仓库 README 加总入口链接（幂等）
     ├── make-preview.py    # 生成本地预览页（输出到仓库外的上级目录，不入库）
     ├── verify-remote.py   # 逐文件比对本地与远端 blob sha
@@ -158,12 +163,15 @@ GH-Handover/
 ```
 
 改了 `prompts/` 里的内容之后，跑一次 `python tools/build-prompts.py` 重新生成合集，再提交。
+改了项目清单或描述之后，跑 `python tools/build-pages.py` 重新生成门户页（会自动校验远端仓库状态）。
 
 ### 自检命令
 
 ```bash
 python tools/verify-remote.py        # 校验本仓库推送完整性（逐文件 blob sha）
 python tools/add-backlink.py --dry-run   # 检查 10 个仓库是否都已挂上总入口
+python tools/add-license.py --dry-run    # 检查 11 个仓库的 LICENSE 是否一致
+python tools/build-pages.py              # 校验 10 个仓库仍公开且为 MIT，并重建门户页
 ```
 
 
@@ -176,9 +184,13 @@ python tools/add-backlink.py --dry-run   # 检查 10 个仓库是否都已挂上
 | 1 | `GH-CloudGame` README 写「jsdom 不装也行」，**实测是直接中止** | 必须装 jsdom，已在本页第 2 节写成必装步骤 |
 | 2 | `GH-GameNews` 仓库 177 MB（历史归档大文件） | 首次 clone 慢 |
 | 3 | `GH-Game-Puton` 无 Release 成品 | 需自己打包 |
-| 4 | 6 个仓库无 LICENSE 文件 | 内部交接无碍；对外发布需补 |
-| 5 | 10 个仓库均未启用 GitHub Pages | 网页版需本地起服务 |
+
+原本还有两项，**已于 2026-10-26 解决**：
+
+- **许可证**：11 个仓库全部写入标准 MIT，GitHub 均识别为 `MIT License`。
+  （此前 7 个完全没有 LICENSE 文件；`GH-Gamehub` 虽写了 MIT，但末尾附了 7 行中文数据声明，被判成 `NOASSERTION` —— 现已把声明拆到 `NOTICE.md`。）
+- **Pages**：已启用，<https://ghzs-project.github.io/GH-Handover/>，对外可访问、已脱敏。
 
 ---
 
-*最后核对：2026-10-26 15:10（北京时间）　·　归属组织：GHZS-Project*
+*最后核对：2026-10-26 15:45（北京时间）　·　归属组织：GHZS-Project*
