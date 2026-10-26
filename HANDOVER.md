@@ -1,6 +1,6 @@
 # 交接说明与实测记录
 
-> 核对时间：2026-10-26 15:05（北京时间）　·　组织：`GHZS-Project`
+> 核对时间：2026-10-26 16:10（北京时间）　·　组织：`GHZS-Project`
 > 适用对象：接手这 10 个 `GH-` 仓库的人，以及协助他的 AI Agent
 
 ---
@@ -61,7 +61,7 @@
 |---|---|---|
 | **GH-CloudGame** | `pipeline/09_run_all.py` | 9 步 **104.2 秒**完成；`08` 门禁 `ERROR 0 · WARN 0 → PASS`；产出 HTML 看板 + 多 sheet Excel |
 | **GH-WeeklyReport** | `PORT=18787 node server/server.mjs` | HTTP `200`，`<title>` 为「周报分析」；确认**零依赖** |
-| **GH-KomoSkill** | `scripts/doctor.py` | 8 项全 `OK`；`install.py` 支持 claude / codex / workbuddy 三目标 |
+| **GH-KomoSkill** | `scripts/doctor.py` | 9 项全 `OK`；`install.py` 支持 claude / codex / workbuddy 三目标 |
 | **GH-GameSearch** | 检查 `dist/GH-GameSearch.apk` | 890,470 B，可直接安装；README 中哈希 `D3C0BAD5…` 与该文件对应 |
 | **GH-GameGather-APP** | 检查 Release 与 `demo/` | Release `v28` 262 MB 整包；`demo/index.html` 双击可看 |
 | **GH-Gamehub** | 依赖与自检脚本 | 依赖仅 **3 个**；`npm run doctor` / `handover` 可用；线上版 200 |
@@ -113,3 +113,22 @@
 | 平台导出数据 | CloudGame、WeeklyReport | 仓库自带样例可先跑通；换成自己的数据再看 `AGENT.md` / `HANDOFF.md` |
 | 打包环境 | Game-Puton | `npm i` + `npm run 打包exe` |
 | Android 构建环境 | GameSearch（仅改代码时） | JDK 17 + SDK 35 + Android Studio；只使用不改代码则不需要 |
+
+---
+
+## 六、门户页升级（2026-10-26 16:10）
+
+网页版总览 <https://ghzs-project.github.io/GH-Handover/> 由「纯文字卡片墙」升级为「带真实截图的交接页」。
+
+| 改动 | 说明 |
+|---|---|
+| 每个项目配一张真实界面截图 | 原图 `shots/*.webp`（1400px 宽，合计 0.84 MB），缩略图在卡片顶部，点开是灯箱大图，可 `←` `→` 翻页、右键另存 |
+| 截图来源 | 本机实跑中的服务（64111 / 64423 / 8123 / 8787）、仓库自带 demo / 页面、线上 prod 站、CloudGame 自带看板 HTML、`doctor.py` 真实输出 |
+| 每张图标注它展示什么 | 例如「首页：全部数据池 7,072 条 · 手机游戏 1,501」「搜索 3,003,769 次（+72.9%）…」，避免看图猜 |
+| 新增「在线入口一览」 | 10 条地址**不脱敏**（线上站、本机端口、公司后台 `and-admin.ghzs.com`、鲸云、数据平台），按公司内部交接场景保留原文 |
+| 本机端口可一键复制 | 卡片上的 `:64111` 等徽章点击即复制 `http://127.0.0.1:64111/` |
+| 搜索增强 | 仍按项目名 / 技术栈过滤，可搜端口号与描述 |
+
+可复现：`tools/capture-shots.py`（抓图，需 playwright + pillow）、`tools/make-terminal.py`（KomoSkill 终端卡片）、`tools/build-pages.py`（重建页面）。三者都在仓库里，界面改版后重跑即可。
+
+> 说明：`05 GameGather-UPSTREAM` 与 `03 GameHub` 是同一套服务端代码的两个仓库，截图分别取「管理后台仪表盘」和「线上站全站热榜」以免看起来重复。

@@ -2,7 +2,7 @@
 
 > 组织：[**GHZS-Project**](https://github.com/GHZS-Project)　·　**10 个业务项目** + 本交接入口 = 11 个仓库　·　全部公开　·　全部 **MIT License**
 >
-> **网页版总览：[ghzs-project.github.io/GH-Handover](https://ghzs-project.github.io/GH-Handover/)** ← 不熟悉 GitHub 的人看这个，点开就是项目墙
+> **网页版总览：[ghzs-project.github.io/GH-Handover](https://ghzs-project.github.io/GH-Handover/)** ← 不熟悉 GitHub 的人看这个，**点开就是项目墙 + 每个项目的真实界面截图**（点图看大图，可直接右键另存做 PPT）
 > 本页是 Markdown 版入口。想快速上手，看[第 2 节](#2-拿到就跑最快的三个)；想让 AI Agent 干活，复制 [PROMPTS.md](PROMPTS.md) 里的段落。
 >
 > 🔗 **双向可达**：10 个仓库的 README 顶部都已挂上回到本页的链接，从任何一个仓库都能找回总目录。
@@ -38,6 +38,29 @@
 |---|---|---|---|---|
 | 10 | [`GH-KomoSkill`](https://github.com/GHZS-Project/GH-KomoSkill) | **AI 协作工作法技能包**（非业务工具）：六阶段门禁 + 证据纪律 + 防失忆，Codex / WorkBuddy / Claude 通用 | Python 脚本 | ✅ 开箱即用 |
 
+### 界面速览
+
+门户页 [ghzs-project.github.io/GH-Handover](https://ghzs-project.github.io/GH-Handover/) 的每张卡片都配了**真实界面截图**（原图在 [`shots/`](shots/)，1400px 宽 webp）：点缩略图看大图，`←` `→` 翻页，右键可直接另存去做 PPT。
+
+截图全部取自本机实跑或仓库自带页面，不是示意图，每张图下方标注了它这一屏展示的是什么数据。
+
+### 在线入口（内部使用，地址不脱敏）
+
+| 用途 | 地址 | 说明 |
+|---|---|---|
+| GameHub 线上站 | <https://gamehub-agg-v4.app.workbuddy.host/> | 公网可访问，当前 prod 版本 |
+| 端游周报看板 | <https://cee91cf9b0ac44baa16b30868c8b4c47.app.workbuddy.link> | CloudGame 最新一期产出 |
+| GameHub 本机 | <http://127.0.0.1:8123/> | `npm install && npm start` 后打开 |
+| GameHub 管理后台 | <http://127.0.0.1:8123/admin.html> | 库构成 / 缺口 / 数据源健康 |
+| NewGameWiki | <http://127.0.0.1:64111/> | 前后端一起起，端口见 `.env` |
+| GameNews 工作台 | <http://127.0.0.1:64423/> | 需同时起 64424 后端 |
+| WeeklyReport | <http://127.0.0.1:8787/> | 零依赖，`node server/server.mjs` |
+| 游戏后台上架 | <https://and-admin.ghzs.com/> | 需要公司后台账号，Puton / GameSearch 共用 |
+| 鲸云数据 | <http://coop.jingyungame.com/#/login> | 需要公司账号，CloudGame 下载数据来源 |
+| 数据平台（神策） | <https://zx.20130123.com/light_gm/login.html> | 需要公司账号，CloudGame 搜索数据来源 |
+
+> 带 `127.0.0.1` 的是本机服务，要先按对应仓库 README 把服务跑起来；公司后台类地址需在公司网络内、用公司账号登录。
+
 ---
 
 ## 2. 拿到就跑：最快的三个
@@ -56,7 +79,7 @@ node server/server.mjs                      # 打开 http://127.0.0.1:8787
 
 # 3. 技能包自检 —— 零依赖
 git clone https://github.com/GHZS-Project/GH-KomoSkill.git && cd GH-KomoSkill
-python scripts/doctor.py                    # 8 项检查
+python scripts/doctor.py                    # 9 项检查
 ```
 
 > 已有在线可看：**Gamehub** https://gamehub-agg-v4.app.workbuddy.host/ ｜ **GameGather-APP** 装 Release 包
@@ -69,7 +92,7 @@ python scripts/doctor.py                    # 8 项检查
 |---|---|---|---|
 | ✅ | **GH-CloudGame** | `09_run_all.py` 9 步 **104.2s** 跑完，`08` 门禁 `ERROR 0 · WARN 0 → PASS` | 无（自带样例数据） |
 | ✅ | **GH-WeeklyReport** | `PORT=18787 node server/server.mjs` → `200`，**零依赖** | 自己的周报 Excel |
-| ✅ | **GH-KomoSkill** | `doctor.py` 8 项全 `OK` | 无 |
+| ✅ | **GH-KomoSkill** | `doctor.py` 9 项全 `OK` | 无 |
 | ✅ | **GH-GameSearch** | `dist/GH-GameSearch.apk`（890,470 B）可直接安装 | 后台账号（App 内登录） |
 | ✅ | **GH-GameGather-APP** | Release `v28`（262 MB）；`demo/index.html` 双击即看 | 无 |
 | ⚠️ | **GH-Gamehub** | 依赖仅 **3 个**，带 `npm run doctor` 自检 | `npm i` + 自行初始化管理员 |
@@ -136,7 +159,8 @@ python scripts/doctor.py                    # 8 项检查
 
 ```
 GH-Handover/
-├── index.html        ← GitHub Pages 门户页（对外版，已脱敏，由 tools/build-pages.py 生成）
+├── index.html        ← GitHub Pages 门户页（项目墙 + 缩略图 + 灯箱 + 在线入口，由 tools/build-pages.py 生成）
+├── shots/            ← 10 张真实界面截图（webp，1400px 宽），可直接拿去做 PPT
 ├── README.md         ← 你正在看的入口页（Markdown 版，信息最全）
 ├── PROMPTS.md        ← 10 段 agent prompt 合集（复制用）
 ├── HANDOVER.md       ← 审计结论、实测记录、遗留待办
@@ -154,6 +178,8 @@ GH-Handover/
 └── tools/            ← 维护脚本（一般不用碰）
     ├── build-prompts.py   # 由 prompts/ 重新生成 PROMPTS.md（幂等）
     ├── build-pages.py     # 生成 index.html（构建时校验每个仓库仍公开且为 MIT）
+    ├── capture-shots.py   # 重新抓 shots/*.webp（界面改了就重跑；需 playwright + pillow）
+    ├── make-terminal.py   # 把 doctor.py 输出渲染成终端卡片（KomoSkill 截图用）
     ├── add-license.py     # 给 11 个仓库统一写入 MIT LICENSE（幂等）
     ├── add-backlink.py    # 给 10 个仓库 README 加总入口链接（幂等）
     ├── make-preview.py    # 生成本地预览页（输出到仓库外的上级目录，不入库）
@@ -164,6 +190,7 @@ GH-Handover/
 
 改了 `prompts/` 里的内容之后，跑一次 `python tools/build-prompts.py` 重新生成合集，再提交。
 改了项目清单或描述之后，跑 `python tools/build-pages.py` 重新生成门户页（会自动校验远端仓库状态）。
+界面改版后重抓截图：先把对应服务跑起来，再 `python tools/capture-shots.py`（`--list` 看清单与前置条件）。
 
 ### 自检命令
 
@@ -189,7 +216,7 @@ python tools/build-pages.py              # 校验 10 个仓库仍公开且为 MI
 
 - **许可证**：11 个仓库全部写入标准 MIT，GitHub 均识别为 `MIT License`。
   （此前 7 个完全没有 LICENSE 文件；`GH-Gamehub` 虽写了 MIT，但末尾附了 7 行中文数据声明，被判成 `NOASSERTION` —— 现已把声明拆到 `NOTICE.md`。）
-- **Pages**：已启用，<https://ghzs-project.github.io/GH-Handover/>，对外可访问、已脱敏。
+- **Pages**：已启用，<https://ghzs-project.github.io/GH-Handover/>，对外可访问。
 
 ---
 

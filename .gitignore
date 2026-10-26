@@ -6,3 +6,8 @@ node_modules/
 .DS_Store
 Thumbs.db
 __pycache__/
+
+# 截图中间产物（只提交 shots/*.webp）
+_shots_raw/
+komoskill-terminal.html
+doctor.txt

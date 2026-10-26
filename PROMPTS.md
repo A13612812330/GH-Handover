@@ -164,7 +164,7 @@
 
 **能干什么**：不是业务工具，是一套**让 AI 按规矩干活**的技能包：六阶段门禁（需求→方案→执行→验收→归档）、证据纪律（不许凭记忆说"已完成"）、防失忆。支持 Codex / WorkBuddy / Claude。
 
-**实测**：`doctor.py` 8 项检查全 `OK`；`install.py --target {claude,codex,workbuddy}` 可用。
+**实测**：`doctor.py` 9 项检查全 `OK`；`install.py --target {claude,codex,workbuddy}` 可用。
 
 **用法**：复制下面整段发给 AI。
 
@@ -181,7 +181,7 @@
 步骤：
 1. clone 到 D:\projects\GH-KomoSkill
 2. 读 README.md，用 5 行话讲清它到底约束了什么（不要复述目录结构，讲规则）
-3. 跑自检：python scripts/doctor.py —— 把 8 项结果逐条贴给我，有 FAIL 的先解释原因
+3. 跑自检：python scripts/doctor.py —— 把 9 项结果逐条贴给我，有 FAIL 的先解释原因
 4. 告诉我 install.py 的三个目标分别装到哪里、装完之后怎么验证生效：
    - claude / codex / workbuddy（我三个环境都在用，帮我判断该装哪个，
      或者能不能三个都装、会不会冲突）
