@@ -1,0 +1,8 @@
+# 交接仓库自身的忽略规则
+node_modules/
+.env
+.env.local
+*.log
+.DS_Store
+Thumbs.db
+__pycache__/

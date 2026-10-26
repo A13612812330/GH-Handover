@@ -1,0 +1,5 @@
+# 统一换行，避免 Windows 克隆后 Markdown 全文显示为改动
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.zip binary
