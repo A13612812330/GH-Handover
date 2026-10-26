@@ -2,6 +2,8 @@
 
 > 账号：`A13612812330`　·　共 **10 个** `GH-` 前缀仓库　·　全部已公开
 > 本页是所有 GH 项目的唯一入口。想快速上手，看[第 2 节](#2-拿到就跑最快的三个)；想让 AI Agent 干活，复制 [PROMPTS.md](PROMPTS.md) 里的段落。
+>
+> 🔗 **双向可达**：10 个仓库的 README 顶部都已挂上回到本页的链接，从任何一个仓库都能找回总目录。
 
 ---
 
@@ -124,18 +126,32 @@ GH-Handover/
 ├── README.md         ← 你正在看的入口页
 ├── PROMPTS.md        ← 10 段 agent prompt 合集（复制用）
 ├── HANDOVER.md       ← 审计结论、实测记录、遗留待办
-└── prompts/          ← 每段 prompt 单独成文件，有独立链接
-    ├── 00-总览.md
-    ├── 01-CloudGame.md
-    ├── 02-WeeklyReport.md
-    ├── 03-KomoSkill.md
-    ├── 04-Gamehub.md
-    ├── 05-GameGather.md
-    ├── 06-GameSearch.md
-    ├── 07-GameNews.md
-    ├── 08-NewGameWIki.md
-    └── 09-Game-Puton.md
+├── prompts/          ← 每段 prompt 单独成文件，有独立链接
+│   ├── 00-总览.md
+│   ├── 01-CloudGame.md
+│   ├── 02-WeeklyReport.md
+│   ├── 03-KomoSkill.md
+│   ├── 04-Gamehub.md
+│   ├── 05-GameGather.md
+│   ├── 06-GameSearch.md
+│   ├── 07-GameNews.md
+│   ├── 08-NewGameWIki.md
+│   └── 09-Game-Puton.md
+└── tools/            ← 维护脚本（一般不用碰）
+    ├── build-prompts.py   # 由 prompts/ 重新生成 PROMPTS.md（幂等）
+    ├── add-backlink.py    # 给 10 个仓库 README 加总入口链接（幂等）
+    └── verify-remote.py   # 逐文件比对本地与远端 blob sha
 ```
+
+改了 `prompts/` 里的内容之后，跑一次 `python tools/build-prompts.py` 重新生成合集，再提交。
+
+### 自检命令
+
+```bash
+python tools/verify-remote.py        # 校验本仓库推送完整性（逐文件 blob sha）
+python tools/add-backlink.py --dry-run   # 检查 10 个仓库是否都已挂上总入口
+```
+
 
 ---
 
@@ -151,4 +167,4 @@ GH-Handover/
 
 ---
 
-*最后核对：2026-10-26 14:35（北京时间）*
+*最后核对：2026-10-26 14:50（北京时间）*
