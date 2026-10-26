@@ -157,18 +157,85 @@ GROUPS = [
 # 竖屏截图（手机 UI）：缩略图用 contain，别横向裁掉
 PORTRAIT = {"08-gamesearch.webp"}
 
-# 在线入口一览（内部使用，不脱敏）：(用途, 地址, 说明)
-LINKS = [
-    ("GameHub 线上站", "https://gamehub-agg-v4.app.workbuddy.host/", "公网可访问，当前 prod 版本"),
-    ("端游周报看板", "https://cee91cf9b0ac44baa16b30868c8b4c47.app.workbuddy.link", "CloudGame 最新一期产出"),
-    ("GameHub 本机", "http://127.0.0.1:8123/", "npm install && npm start 后打开"),
-    ("GameHub 管理后台", "http://127.0.0.1:8123/admin.html", "库构成 / 缺口 / 数据源健康"),
-    ("NewGameWiki", "http://127.0.0.1:64111/", "前后端一起起，端口见 .env"),
-    ("GameNews 工作台", "http://127.0.0.1:64423/", "需同时起 64424 后端"),
-    ("WeeklyReport", "http://127.0.0.1:8787/", "零依赖，node server/server.mjs"),
-    ("游戏后台上架", "https://and-admin.ghzs.com/", "需要公司后台账号，Puton / GameSearch 共用"),
-    ("鲸云数据", "http://coop.jingyungame.com/#/login", "需要公司账号，CloudGame 下载数据来源"),
-    ("数据平台（神策）", "https://zx.20130123.com/light_gm/login.html", "需要公司账号，CloudGame 搜索数据来源"),
+# 线上 / 内网入口：在任何人自己的电脑上都能打开（公司后台需在公司网络内 + 用公司账号）
+ONLINE = [
+    ("GameHub 线上站", "https://gamehub-agg-v4.app.workbuddy.host/", "公网可访问，当前 prod 版本", ""),
+    ("端游周报看板", "https://cee91cf9b0ac44baa16b30868c8b4c47.app.workbuddy.link", "CloudGame 最新一期产出", ""),
+    ("游戏后台上架", "https://and-admin.ghzs.com/", "Puton / GameSearch / DSP 共用", "公司账号"),
+    ("鲸云后台", "http://coop.jingyungame.com/#/login?redirect=%2Findex", "云游戏注册与下载数据来源", "公司账号"),
+    ("数据平台（神策）", "https://zx.20130123.com/light_gm/login.html", "云游戏搜索数据来源 + DSP 游戏补全", "公司账号"),
+]
+
+# 本机启动速查：只在「跑起来的那台电脑」上有效。本机清空 / 换机器后这些地址自然失效，
+# 接手人按下面的命令在自己机器上起一遍即可 —— (服务, 端口, 启动命令, 说明)
+LOCAL = [
+    ("GameHub", "8123", "cd GH-Gamehub && npm i && npm start", "首页 / 热榜 / 搜索"),
+    ("GameHub 管理后台", "8123", "同上，起来后访问 /admin.html", "库构成 · 缺口 · 数据源健康"),
+    ("GameGather UPSTREAM", "8123", "cd GH-GameGather-UPSTREAM && npm i && npm start", "与 GameHub 同端口，别同时起；要并行设 GAMEHUB_PORT_SHIFT=1"),
+    ("NewGameWiki", "64111", "cd GH-NewGameWIki && npm i && npm run dev", "前后端一起起，端口见 .env"),
+    ("GameNews", "64423 / 64424", "前端 pnpm dev；后端另开一个窗口起 API", "工作台 64423，API 64424，两个都要起"),
+    ("WeeklyReport", "8787", "cd GH-WeeklyReport && node server/server.mjs", "零依赖，克隆即跑"),
+]
+
+# 日常工作（来自交接表「日常任务」，含双周/每周节奏）：(事项, 频率, 用到什么, 做什么, [(名, 链接)])
+ROUTINES = [
+    (
+        "搜索权重",
+        "按需",
+        "钉钉「新游表」",
+        "按新游表调整新游的搜索权重。",
+        [("新游表", "https://alidocs.dingtalk.com/i/nodes/l6Pm2Db8DQQ90GerCdapnyDkWxLq0Ee4?iframeQuery=")],
+    ),
+    (
+        "周报 + PPT",
+        "双周",
+        "WeeklyReport + GameNews",
+        "WeeklyReport 汇总数据出表，GameNews 抓活动与新游内容；<strong>双周定制一次 PPT</strong>。",
+        [
+            ("WeeklyReport", "https://github.com/GHZS-Project/GH-WeeklyReport"),
+            ("GameNews", "https://github.com/GHZS-Project/GH-GameNews"),
+        ],
+    ),
+    (
+        "云游戏简报",
+        "双周",
+        "CloudGame（神策 + 鲸云）",
+        "神策取下载与搜索关键词，鲸云补注册数据，用 AI 联网整理成简报。",
+        [("CloudGame", "https://github.com/GHZS-Project/GH-CloudGame")],
+    ),
+    (
+        "游戏库导航栏",
+        "按需",
+        "钉钉「导航栏配置」",
+        "更新入口 icon，调整专题内的游戏权重。",
+        [("导航栏配置", "https://alidocs.dingtalk.com/i/nodes/QBnd5ExVEaaD5e1NCkb9o20kVyeZqMmz?utm_scene=person_space")],
+    ),
+    (
+        "DSP 游戏",
+        "按需",
+        "数据平台（神策）",
+        "拿 DSP 群给的包名 + 游戏名，到后台补全游戏信息。",
+        [("数据平台", "https://zx.20130123.com/light_gm/login.html")],
+    ),
+    (
+        "鲸云游戏",
+        "按需",
+        "鲸云后台",
+        "维护鲸云 20 款游戏的注册数据与上架状态。",
+        [("鲸云后台", "http://coop.jingyungame.com/#/login?redirect=%2Findex")],
+    ),
+    (
+        "买量情况",
+        "每周",
+        "巨量 / 百度 / 快手 / 七麦",
+        "看投放与自然量走势，据此调整运营策略、游戏评级与新游收录。",
+        [
+            ("巨量算数", "https://creator.douyin.com/creator-micro/creator-count/arithmetic-index"),
+            ("百度指数", "https://index.baidu.com/v2/index.html#/"),
+            ("快手指数", "https://index.e.kuaishou.com/zhishu?ref=kedaxmt.com"),
+            ("七麦", "https://www.qimai.cn/rank"),
+        ],
+    ),
 ]
 
 TOKEN = subprocess.run(["gh", "auth", "token"], capture_output=True, text=True).stdout.strip()
@@ -228,8 +295,9 @@ def cards(start, end):
             )
         if port:
             chips.append(
-                '<button class="chip mono" data-copy="http://127.0.0.1:%s/" title="点击复制本机地址">'
-                '<span class="dot-live"></span><span class="pt">:%s</span></button>' % (port, port)
+                '<button class="chip mono" data-copy="http://127.0.0.1:%s/" '
+                'title="本机端口：要先在自己电脑上把服务跑起来才有；点击复制地址">'
+                '<span class="dot-local"></span><span class="pt">本机 :%s</span></button>' % (port, port)
             )
         out.append(
             '<article class="card" data-idx="%02d">'
@@ -268,13 +336,46 @@ def cards(start, end):
 
 def link_rows():
     rows = []
-    for use, url, note in LINKS:
+    for use, url, note, need in ONLINE:
+        tag = '<span class="req">%s</span>' % esc(need) if need else ""
         rows.append(
             '<tr><td class="u">%s</td>'
             '<td><a href="%s" target="_blank" rel="noopener">%s</a></td>'
-            '<td class="n">%s</td></tr>' % (esc(use), esc(url), esc(url), esc(note))
+            '<td class="n">%s%s</td></tr>' % (esc(use), esc(url), esc(url), tag, esc(note))
         )
     return "".join(rows)
+
+
+def local_rows():
+    rows = []
+    for name, port, cmd, note in LOCAL:
+        rows.append(
+            '<tr><td class="u">%s</td>'
+            '<td><span class="port">%s</span></td>'
+            '<td><code class="cmd">%s</code></td>'
+            '<td class="n">%s</td></tr>' % (esc(name), esc(port), esc(cmd), esc(note))
+        )
+    return "".join(rows)
+
+
+def routine_rows():
+    rows = []
+    for name, freq, use, what, links in ROUTINES:
+        f = '<span class="freq f-%s">%s</span>' % ("bi" if freq == "双周" else "wk" if freq == "每周" else "on", esc(freq))
+        lk = " ".join(
+            '<a class="rlink" href="%s" target="_blank" rel="noopener">%s<span class="arw">&#8599;</span></a>'
+            % (esc(u), esc(t))
+            for t, u in links
+        )
+        rows.append(
+            '<tr><td class="u">%s</td><td>%s</td><td class="n">%s</td><td class="n">%s</td>'
+            '<td class="rl">%s</td></tr>' % (esc(name), f, esc(use), what, lk)
+        )
+    return "".join(rows)
+
+
+def n_ready():
+    return sum(1 for p in PROJECTS if p[4] == "ready")
 
 
 def shots_json():
@@ -313,9 +414,14 @@ def build():
         ("@@NAV@@", nav),
         ("@@SECTIONS@@", "".join(sections)),
         ("@@LINKS@@", link_rows()),
+        ("@@LOCAL@@", local_rows()),
+        ("@@ROUTINES@@", routine_rows()),
         ("@@N_REPO@@", str(len(PROJECTS))),
         ("@@N_GROUP@@", str(len(GROUPS))),
         ("@@N_SHOT@@", str(len(PROJECTS))),
+        ("@@N_READY@@", str(n_ready())),
+        ("@@N_ROUTINE@@", str(len(ROUTINES))),
+        ("@@N_ONLINE@@", str(len(ONLINE))),
         ("@@SHOTS@@", shots_json()),
     ):
         html = html.replace(k, v)
@@ -327,7 +433,7 @@ TEMPLATE = r"""<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="GHZS-Project 交接总览：10 个可独立运行的项目，全部 MIT，含真实界面截图与在线入口。">
+<meta name="description" content="GHZS-Project 交接总览：10 个可独立运行的项目（全部 MIT），配真实界面截图、日常工作日历与线上入口。">
 <title>GHZS-Project · 项目交接总览</title>
 <style>
 :root{
@@ -420,6 +526,7 @@ h1 em{font-style:normal;color:var(--blue)}
 .chip.mono{font-family:Consolas,"Cascadia Mono",monospace;font-size:11.5px;color:var(--ink-2);gap:5px}
 .chip.mono.done{background:#e8f6f2;border-color:#c8e9e1;color:#0b6b5c}
 .dot-live{width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block}
+.dot-local{width:6px;height:6px;border-radius:50%;background:#c3cad4;display:inline-block}
 .arw{font-size:11px;color:var(--ink-3);line-height:1}
 .chip:hover .arw{color:var(--blue)}
 
@@ -436,6 +543,32 @@ td a{color:var(--blue);text-decoration:none;word-break:break-all}
 td a:hover{text-decoration:underline}
 td.n{color:var(--ink-2)}
 .mono-t{font-family:Consolas,"Cascadia Mono",monospace}
+
+/* 入口表 / 日常工作表 */
+.req{display:inline-block;font-size:10.5px;font-weight:600;color:#92400e;background:#fdf3e3;
+  border:1px solid #f4dfbc;border-radius:5px;padding:0 5px;margin-right:7px;line-height:1.7;
+  vertical-align:1px;white-space:nowrap}
+.port{font-family:Consolas,"Cascadia Mono",monospace;font-size:12px;color:var(--ink);
+  background:#f2f4f7;border:1px solid var(--line);border-radius:5px;padding:1px 7px;white-space:nowrap}
+code.cmd{font-family:Consolas,"Cascadia Mono",monospace;font-size:11.5px;color:#1f2937;
+  background:#f7f8fa;border:1px solid var(--line-2);border-radius:5px;padding:2px 7px;
+  display:inline-block;word-break:break-all;line-height:1.6}
+.freq{display:inline-block;font-size:10.5px;font-weight:600;border-radius:20px;padding:1px 8px;
+  border:1px solid transparent;white-space:nowrap;line-height:1.75}
+.f-bi{color:#5b21b6;background:#f3eefe;border-color:#e2d7fb}
+.f-wk{color:#1d4ed8;background:#eaf0fe;border-color:#cfdcfb}
+.f-on{color:#5b6472;background:#f2f4f7;border-color:var(--line)}
+td.rl{white-space:nowrap}
+.rlink{display:inline-flex;align-items:center;gap:3px;font-size:12px;color:var(--blue);
+  text-decoration:none;margin-right:10px}
+.rlink:hover{text-decoration:underline}
+.rlink .arw{color:inherit;font-size:10px}
+
+.note{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:var(--ink-2);
+  background:#f7f9fc;border:1px solid #e3e9f2;border-left:3px solid #9db4d6;
+  border-radius:8px;padding:10px 13px;margin-bottom:14px;line-height:1.7}
+.note b{color:var(--ink)}
+.note .ni{flex:none;font-size:13px;color:#7d94b8;line-height:1.6}
 
 .how ol{display:grid;gap:9px;padding-left:22px;list-style:decimal;margin-top:10px}
 .how li{color:var(--ink-2);font-size:13px;padding-left:2px}
@@ -490,8 +623,8 @@ body.filtering .group.has-hit{display:block}
     <p class="sub"><strong>@@N_REPO@@ 个可独立运行的项目</strong>，覆盖游戏资讯站、运营工具、数据流水线与协作方法。每个项目配一张真实界面截图，点开看大图；全部 <strong>MIT</strong> 许可，clone 下来就能改、能再分发。</p>
     <div class="stats">
       <div class="stat"><b>@@N_REPO@@</b><span>开源仓库</span></div>
-      <div class="stat"><b>@@N_SHOT@@</b><span>真实界面截图</span></div>
-      <div class="stat"><b>5</b><span>开箱即用</span></div>
+      <div class="stat"><b>@@N_ROUTINE@@</b><span>项日常工作</span></div>
+      <div class="stat"><b>@@N_READY@@</b><span>开箱即用</span></div>
       <div class="stat"><b>MIT</b><span>统一许可证</span></div>
     </div>
   </header>
@@ -504,7 +637,8 @@ body.filtering .group.has-hit{display:block}
       <input id="q" type="search" placeholder="搜索项目、技术栈或端口…" autocomplete="off">
     </label>
     @@NAV@@
-    <a class="navbtn" href="#links">在线入口<span class="navn">@@N_REPO@@</span></a>
+    <a class="navbtn" href="#routine">日常工作<span class="navn">@@N_ROUTINE@@</span></a>
+    <a class="navbtn" href="#links">线上入口<span class="navn">@@N_ONLINE@@</span></a>
     <a class="navbtn" href="PROMPTS.md">AI 提示词</a>
   </div>
 </div>
@@ -513,12 +647,35 @@ body.filtering .group.has-hit{display:block}
   @@SECTIONS@@
   <div class="empty">没有匹配的项目</div>
 
+  <section class="sec" id="routine">
+    <h2>日常工作（周期性）</h2>
+    <p class="hint">交接表里的「日常任务」原样搬过来，按节奏分组。<strong>双周</strong>两项是硬节奏（周报 PPT、云游戏简报），其余按需触发。</p>
+    <table>
+      <thead><tr><th>事项</th><th>频率</th><th>用到什么</th><th>做什么</th><th>入口</th></tr></thead>
+      <tbody>@@ROUTINES@@</tbody>
+    </table>
+  </section>
+
   <section class="sec" id="links">
-    <h2>在线入口一览</h2>
-    <p class="hint">内部交接用，地址原样保留。带 <span class="mono-t">127.0.0.1</span> 的需先把对应服务跑起来；公司后台类地址要在公司网络内、并用公司账号登录。</p>
+    <h2>线上 / 内网入口</h2>
+    <p class="hint">这些在你的电脑上直接能点开，与本机是否开机无关。带「公司账号」的要在公司网络内、用公司账号登录。</p>
     <table>
       <thead><tr><th>用途</th><th>地址</th><th>说明</th></tr></thead>
       <tbody>@@LINKS@@</tbody>
+    </table>
+  </section>
+
+  <section class="sec" id="local">
+    <h2>本机启动速查</h2>
+    <div class="note">
+      <span class="ni">&#9432;</span>
+      <span><b>这些地址只在「跑起来的那台电脑」上有效。</b>原开发机即将清空，所以你点它们是打不开的 ——
+      正确用法是：在自己电脑上 clone 对应仓库、跑下表的命令，再访问 <span class="mono-t">127.0.0.1:端口</span>。
+      本页（GitHub Pages）与本机任何服务无关，本机关机也照常打开。</span>
+    </div>
+    <table>
+      <thead><tr><th>服务</th><th>端口</th><th>启动</th><th>说明</th></tr></thead>
+      <tbody>@@LOCAL@@</tbody>
     </table>
   </section>
 
@@ -527,6 +684,7 @@ body.filtering .group.has-hit{display:block}
     <ol>
       <li>点任意截图看大图，右键可另存；每张图下方都写清了它展示的是什么数据。</li>
       <li>挑一个仓库，点「打开仓库」；每个仓库的 README 都写了它自己怎么跑。需要依赖的先 <code>npm install</code> 或 <code>pip install -r requirements.txt</code>。</li>
+      <li>本机端口只是「跑起来之后才有」的地址，照上表命令起一遍即可，不需要原开发机在线。</li>
       <li>涉及第三方登录的（飞书推送、公司后台），仓库内<strong>不含任何凭据</strong>，由使用者在界面内自行登录。</li>
       <li>想让 AI 接手，把 <a href="PROMPTS.md">PROMPTS.md</a> 里对应段落整段复制给它。</li>
     </ol>

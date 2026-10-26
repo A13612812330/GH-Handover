@@ -3,6 +3,7 @@
 > 组织：[**GHZS-Project**](https://github.com/GHZS-Project)　·　**10 个业务项目** + 本交接入口 = 11 个仓库　·　全部公开　·　全部 **MIT License**
 >
 > **网页版总览：[ghzs-project.github.io/GH-Handover](https://ghzs-project.github.io/GH-Handover/)** ← 不熟悉 GitHub 的人看这个，**点开就是项目墙 + 每个项目的真实界面截图**（点图看大图，可直接右键另存做 PPT）
+> 该页由 **GitHub Pages 托管**，静态文件放在仓库里，**与开发机是否开机无关**——本机关机、清空、换电脑都能打开。
 > 本页是 Markdown 版入口。想快速上手，看[第 2 节](#2-拿到就跑最快的三个)；想让 AI Agent 干活，复制 [PROMPTS.md](PROMPTS.md) 里的段落。
 >
 > 🔗 **双向可达**：10 个仓库的 README 顶部都已挂上回到本页的链接，从任何一个仓库都能找回总目录。
@@ -44,22 +45,49 @@
 
 截图全部取自本机实跑或仓库自带页面，不是示意图，每张图下方标注了它这一屏展示的是什么数据。
 
-### 在线入口（内部使用，地址不脱敏）
+### 线上 / 内网入口（地址不脱敏）
+
+这几条**在任何人的电脑上都能直接点开**，与开发机是否开机无关：
 
 | 用途 | 地址 | 说明 |
 |---|---|---|
 | GameHub 线上站 | <https://gamehub-agg-v4.app.workbuddy.host/> | 公网可访问，当前 prod 版本 |
 | 端游周报看板 | <https://cee91cf9b0ac44baa16b30868c8b4c47.app.workbuddy.link> | CloudGame 最新一期产出 |
-| GameHub 本机 | <http://127.0.0.1:8123/> | `npm install && npm start` 后打开 |
-| GameHub 管理后台 | <http://127.0.0.1:8123/admin.html> | 库构成 / 缺口 / 数据源健康 |
-| NewGameWiki | <http://127.0.0.1:64111/> | 前后端一起起，端口见 `.env` |
-| GameNews 工作台 | <http://127.0.0.1:64423/> | 需同时起 64424 后端 |
-| WeeklyReport | <http://127.0.0.1:8787/> | 零依赖，`node server/server.mjs` |
-| 游戏后台上架 | <https://and-admin.ghzs.com/> | 需要公司后台账号，Puton / GameSearch 共用 |
-| 鲸云数据 | <http://coop.jingyungame.com/#/login> | 需要公司账号，CloudGame 下载数据来源 |
-| 数据平台（神策） | <https://zx.20130123.com/light_gm/login.html> | 需要公司账号，CloudGame 搜索数据来源 |
+| 游戏后台上架 | <https://and-admin.ghzs.com/> | 🔒 公司账号；Puton / GameSearch / DSP 共用 |
+| 鲸云后台 | <http://coop.jingyungame.com/#/login?redirect=%2Findex> | 🔒 公司账号；云游戏注册与下载数据来源 |
+| 数据平台（神策） | <https://zx.20130123.com/light_gm/login.html> | 🔒 公司账号；云游戏搜索数据 + DSP 游戏补全 |
 
-> 带 `127.0.0.1` 的是本机服务，要先按对应仓库 README 把服务跑起来；公司后台类地址需在公司网络内、用公司账号登录。
+### 本机端口（跑起来才有，不是入口）
+
+**原开发机即将清空，下面这些地址从别的机器点开一定是打不开的**——它们不是「入口」，而是「服务起在本机之后才会存在的地址」。
+接手人正确做法：clone 对应仓库 → 按下表命令跑起来 → 再访问 `127.0.0.1:端口`。
+
+| 服务 | 端口 | 启动 |
+|---|---|---|
+| GameHub | 8123 | `cd GH-Gamehub && npm i && npm start` |
+| GameHub 管理后台 | 8123 | 同上，起来后访问 `/admin.html` |
+| GameGather UPSTREAM | 8123 | `cd GH-GameGather-UPSTREAM && npm i && npm start`（与 GameHub 同端口，别同时起；要并行设 `GAMEHUB_PORT_SHIFT=1`） |
+| NewGameWiki | 64111 | `cd GH-NewGameWIki && npm i && npm run dev`（端口见 `.env`） |
+| GameNews | 64423 / 64424 | 前端 `pnpm dev`；后端另开窗口起 API，两个都要起 |
+| WeeklyReport | 8787 | `cd GH-WeeklyReport && node server/server.mjs` |
+
+> 一句话：**GitHub Pages 门户页与本机任何服务无关**，本机关机、清空、换电脑都不影响它打开；只有 `127.0.0.1` 这类地址才依赖本机在跑。
+
+### 日常工作（周期性）
+
+按交接表「日常任务」原样搬运，标了节奏。**双周**两项是硬节奏，其余按需触发。
+
+| 事项 | 频率 | 用到什么 | 做什么 |
+|---|---|---|---|
+| 搜索权重 | 按需 | 钉钉「新游表」 | 按新游表调整新游搜索权重 |
+| 周报 + PPT | **双周** | WeeklyReport + GameNews | 汇总数据出表 + 抓活动/新游内容，双周出一版 PPT |
+| 云游戏简报 | **双周** | CloudGame（神策 + 鲸云） | 神策取下载与搜索词，鲸云补注册数据，AI 联网整理成简报 |
+| 游戏库导航栏 | 按需 | 钉钉「导航栏配置」 | 更新入口 icon、调整专题内游戏权重 |
+| DSP 游戏 | 按需 | 数据平台（神策） | 按 DSP 群给的包名 + 游戏名补全游戏 |
+| 鲸云游戏 | 按需 | 鲸云后台 | 维护 20 款游戏的注册数据与上架状态 |
+| 买量情况 | 每周 | 巨量 / 百度 / 快手 / 七麦 | 看投放与自然量，调整运营策略、游戏评级、新游收录 |
+
+钉钉两张表的具体链接在[门户页](https://ghzs-project.github.io/GH-Handover/#routine)「日常工作」表格的「入口」列里。
 
 ---
 
@@ -159,7 +187,7 @@ python scripts/doctor.py                    # 9 项检查
 
 ```
 GH-Handover/
-├── index.html        ← GitHub Pages 门户页（项目墙 + 缩略图 + 灯箱 + 在线入口，由 tools/build-pages.py 生成）
+├── index.html        ← GitHub Pages 门户页（项目墙 + 缩略图 + 灯箱 + 日常工作 + 线上入口 + 本机启动速查，由 tools/build-pages.py 生成）
 ├── shots/            ← 10 张真实界面截图（webp，1400px 宽），可直接拿去做 PPT
 ├── README.md         ← 你正在看的入口页（Markdown 版，信息最全）
 ├── PROMPTS.md        ← 10 段 agent prompt 合集（复制用）
