@@ -94,6 +94,15 @@ python scripts/doctor.py                    # 8 项检查
 
 **2026-10-26 做过全量密钥审计**：扫描 10 个仓库全部文本文件（飞书 Secret/Webhook、GitHub Token、OpenAI、AWS、Google、Slack、Bearer、硬编码 password），**0 条真实密钥**；`GH-CloudGame` 5 个历史提交的文件清单也逐条查过，干净。详见 [HANDOVER.md](HANDOVER.md)。
 
+### 交接边界
+
+`GHZS-Project` 组织下只有这 **11 个仓库**。下列内容**不在交接范围**，看到链接点不开是正常的：
+
+| 不在范围 | 原因 |
+|---|---|
+| `Komoyou-Skill`、`Komoyou-Skill-WorkBuddy` | 个人技能库，仍在私人账号下且为私有仓库。`GH-KomoSkill` 的 README 会引用它们，接手人无需访问 |
+| 各仓库运行时的本地凭据、数据库、缓存 | 已被 `.gitignore` 排除，从未提交 |
+
 ---
 
 ## 5. 让 AI Agent 接手
@@ -172,4 +181,4 @@ python tools/add-backlink.py --dry-run   # 检查 10 个仓库是否都已挂上
 
 ---
 
-*最后核对：2026-10-26 14:50（北京时间）*
+*最后核对：2026-10-26 15:10（北京时间）　·　归属组织：GHZS-Project*
