@@ -140,6 +140,7 @@ GH-Handover/
 └── tools/            ← 维护脚本（一般不用碰）
     ├── build-prompts.py   # 由 prompts/ 重新生成 PROMPTS.md（幂等）
     ├── add-backlink.py    # 给 10 个仓库 README 加总入口链接（幂等）
+    ├── make-preview.py    # 生成本地预览页（输出到仓库外的上级目录，不入库）
     └── verify-remote.py   # 逐文件比对本地与远端 blob sha
 ```
 
