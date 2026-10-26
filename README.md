@@ -141,7 +141,9 @@ GH-Handover/
     ├── build-prompts.py   # 由 prompts/ 重新生成 PROMPTS.md（幂等）
     ├── add-backlink.py    # 给 10 个仓库 README 加总入口链接（幂等）
     ├── make-preview.py    # 生成本地预览页（输出到仓库外的上级目录，不入库）
-    └── verify-remote.py   # 逐文件比对本地与远端 blob sha
+    ├── verify-remote.py   # 逐文件比对本地与远端 blob sha
+    ├── migrate-to-org.py  # 把 11 个仓库转移到组织（如 GHZS）
+    └── relink-org.py      # 转移后同步所有文档里的归属链接
 ```
 
 改了 `prompts/` 里的内容之后，跑一次 `python tools/build-prompts.py` 重新生成合集，再提交。
