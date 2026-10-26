@@ -4,7 +4,7 @@ import json
 import subprocess
 import sys
 
-REPO = "A13612812330/GH-Handover"
+REPO = "GHZS-Project/GH-Handover"
 CWD = r"C:\Users\komo\WorkBuddy\本机\GH-Handover"
 
 # 本地：git ls-tree -r HEAD

@@ -11,7 +11,7 @@
 ## 可复制 prompt
 
 ```text
-仓库：https://github.com/A13612812330/GH-Game-Puton
+仓库：https://github.com/GHZS-Project/GH-Game-Puton
 这是一个 Windows 桌面工具（Electron），用来批量往公司游戏后台上架导入数据。
 注意：这个仓库没有 Release 成品包，必须自己打包才能运行。
 

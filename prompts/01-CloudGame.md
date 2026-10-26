@@ -11,7 +11,7 @@
 ## 可复制 prompt
 
 ```text
-仓库：https://github.com/A13612812330/GH-CloudGame
+仓库：https://github.com/GHZS-Project/GH-CloudGame
 目标：在我本机完整跑通三源周报流水线，先跑仓库自带的样例数据，确认能出看板和 Excel。
 
 环境：Windows，Git Bash，Node 22，Python 3.11 或 3.13。

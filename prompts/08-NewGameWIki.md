@@ -11,7 +11,7 @@
 ## 可复制 prompt
 
 ```text
-仓库：https://github.com/A13612812330/GH-NewGameWIki
+仓库：https://github.com/GHZS-Project/GH-NewGameWIki
 目标：跑起来，并且让我理解它的数据模型和排期逻辑（这是我接手后最可能要改的部分）。
 
 环境：Windows，Node 22。端口 64111。

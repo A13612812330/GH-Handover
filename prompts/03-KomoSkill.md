@@ -11,7 +11,7 @@
 ## 可复制 prompt
 
 ```text
-仓库：https://github.com/A13612812330/GH-KomoSkill
+仓库：https://github.com/GHZS-Project/GH-KomoSkill
 目标：把这套协作规范装到我的 AI 环境里，让我以后让你干活时你按它的规矩来。
 
 环境：Windows，Python 3.11+。

@@ -13,16 +13,16 @@ PDIR = os.path.join(BASE, "prompts")
 OUT = os.path.join(os.path.dirname(BASE), "GH-Handover-预览.html")
 
 PROJECTS = [
-    ("GH-Gamehub", "单机游戏聚合站", "机地 + XDGAME 的游戏 / MOD / 存档 / 修改器 / 模拟器配置，6 页 + 管理后台", "⚠️ 装一次依赖", "https://github.com/A13612812330/GH-Gamehub", "04-Gamehub.md"),
-    ("GH-GameGather-APP", "游戏情报桌面成品", "PC/手游情报站 + 资源索引 + aria2 下载，Electron 成品（Release v28 262MB）", "✅ 开箱即用", "https://github.com/A13612812330/GH-GameGather-APP", "05-GameGather.md"),
-    ("GH-GameGather-UPSTREAM", "配套数据服务", "Express + 15 个抓取器 + 93.6MB JSON 索引快照，APP 的后端", "⚠️ 装一次依赖", "https://github.com/A13612812330/GH-GameGather-UPSTREAM", "05-GameGather.md"),
-    ("GH-GameNews", "资讯采集与日报周报", "7 平台采集 → 今日简讯 → 日报/周报海报 → 飞书投递，含定时调度", "⚠️ 装一次依赖", "https://github.com/A13612812330/GH-GameNews", "07-GameNews.md"),
-    ("GH-NewGameWIki", "新游资讯与排期管理", "8 平台采集 → SQLite → 后台，重点管排期", "⚠️ 装一次依赖", "https://github.com/A13612812330/GH-NewGameWIki", "08-NewGameWIki.md"),
-    ("GH-GameSearch", "Android 查询 App", "内部游戏信息查询，按后台账号权限读数据（Kotlin）", "✅ 开箱即用", "https://github.com/A13612812330/GH-GameSearch", "06-GameSearch.md"),
-    ("GH-Game-Puton", "后台上架批量导入", "Windows 桌面工具，批量往 and-admin.ghzs.com 填上架信息", "🔶 需自己打包", "https://github.com/A13612812330/GH-Game-Puton", "09-Game-Puton.md"),
-    ("GH-CloudGame", "端游三源周报", "神策搜索 / 鲸云下载 / SteamDB 销量 → Excel 五表 + HTML 看板，实测 104 秒跑通", "✅ 开箱即用", "https://github.com/A13612812330/GH-CloudGame", "01-CloudGame.md"),
-    ("GH-WeeklyReport", "Excel 周报分析", "当周 / 跨周汇总 / 收益汇总 / 趋势图，零依赖", "✅ 开箱即用", "https://github.com/A13612812330/GH-WeeklyReport", "02-WeeklyReport.md"),
-    ("GH-KomoSkill", "AI 协作工作法", "六阶段门禁 + 证据纪律 + 防失忆，Codex / WorkBuddy / Claude 通用", "✅ 开箱即用", "https://github.com/A13612812330/GH-KomoSkill", "03-KomoSkill.md"),
+    ("GH-Gamehub", "单机游戏聚合站", "机地 + XDGAME 的游戏 / MOD / 存档 / 修改器 / 模拟器配置，6 页 + 管理后台", "⚠️ 装一次依赖", "https://github.com/GHZS-Project/GH-Gamehub", "04-Gamehub.md"),
+    ("GH-GameGather-APP", "游戏情报桌面成品", "PC/手游情报站 + 资源索引 + aria2 下载，Electron 成品（Release v28 262MB）", "✅ 开箱即用", "https://github.com/GHZS-Project/GH-GameGather-APP", "05-GameGather.md"),
+    ("GH-GameGather-UPSTREAM", "配套数据服务", "Express + 15 个抓取器 + 93.6MB JSON 索引快照，APP 的后端", "⚠️ 装一次依赖", "https://github.com/GHZS-Project/GH-GameGather-UPSTREAM", "05-GameGather.md"),
+    ("GH-GameNews", "资讯采集与日报周报", "7 平台采集 → 今日简讯 → 日报/周报海报 → 飞书投递，含定时调度", "⚠️ 装一次依赖", "https://github.com/GHZS-Project/GH-GameNews", "07-GameNews.md"),
+    ("GH-NewGameWIki", "新游资讯与排期管理", "8 平台采集 → SQLite → 后台，重点管排期", "⚠️ 装一次依赖", "https://github.com/GHZS-Project/GH-NewGameWIki", "08-NewGameWIki.md"),
+    ("GH-GameSearch", "Android 查询 App", "内部游戏信息查询，按后台账号权限读数据（Kotlin）", "✅ 开箱即用", "https://github.com/GHZS-Project/GH-GameSearch", "06-GameSearch.md"),
+    ("GH-Game-Puton", "后台上架批量导入", "Windows 桌面工具，批量往 and-admin.ghzs.com 填上架信息", "🔶 需自己打包", "https://github.com/GHZS-Project/GH-Game-Puton", "09-Game-Puton.md"),
+    ("GH-CloudGame", "端游三源周报", "神策搜索 / 鲸云下载 / SteamDB 销量 → Excel 五表 + HTML 看板，实测 104 秒跑通", "✅ 开箱即用", "https://github.com/GHZS-Project/GH-CloudGame", "01-CloudGame.md"),
+    ("GH-WeeklyReport", "Excel 周报分析", "当周 / 跨周汇总 / 收益汇总 / 趋势图，零依赖", "✅ 开箱即用", "https://github.com/GHZS-Project/GH-WeeklyReport", "02-WeeklyReport.md"),
+    ("GH-KomoSkill", "AI 协作工作法", "六阶段门禁 + 证据纪律 + 防失忆，Codex / WorkBuddy / Claude 通用", "✅ 开箱即用", "https://github.com/GHZS-Project/GH-KomoSkill", "03-KomoSkill.md"),
 ]
 
 
@@ -135,7 +135,7 @@ footer{margin-top:36px;font-size:12px;color:#8b949e;text-align:center}
 <div class="wrap">
   <h1>GH 系列 · 交接总览</h1>
   <div class="lead">10 个仓库已全部公开并整理到一处 ·
-    总入口 <a href="https://github.com/A13612812330/GH-Handover" target="_blank">github.com/A13612812330/GH-Handover</a>
+    总入口 <a href="https://github.com/GHZS-Project/GH-Handover" target="_blank">github.com/GHZS-Project/GH-Handover</a>
   </div>
 
   <div class="stats">
@@ -155,9 +155,9 @@ __CARDS__
 
   <h2>最快上手三条</h2>
   <ol class="cmd">
-    <li><code>git clone https://github.com/A13612812330/GH-CloudGame.git</code> → <code>pip install -r requirements.txt</code> + <code>npm i jsdom</code> → <code>cd pipeline &amp;&amp; python 09_run_all.py</code>（约 104 秒出看板 + Excel）</li>
-    <li><code>git clone https://github.com/A13612812330/GH-WeeklyReport.git</code> → <code>node server/server.mjs</code>（零依赖，开 8787）</li>
-    <li><code>git clone https://github.com/A13612812330/GH-KomoSkill.git</code> → <code>python scripts/doctor.py</code>（8 项自检）</li>
+    <li><code>git clone https://github.com/GHZS-Project/GH-CloudGame.git</code> → <code>pip install -r requirements.txt</code> + <code>npm i jsdom</code> → <code>cd pipeline &amp;&amp; python 09_run_all.py</code>（约 104 秒出看板 + Excel）</li>
+    <li><code>git clone https://github.com/GHZS-Project/GH-WeeklyReport.git</code> → <code>node server/server.mjs</code>（零依赖，开 8787）</li>
+    <li><code>git clone https://github.com/GHZS-Project/GH-KomoSkill.git</code> → <code>python scripts/doctor.py</code>（8 项自检）</li>
   </ol>
 
   <h2>可直接复制的 AI Agent Prompt</h2>

@@ -13,7 +13,7 @@
 ## 可复制 prompt
 
 ```text
-仓库：https://github.com/A13612812330/GH-Gamehub
+仓库：https://github.com/GHZS-Project/GH-Gamehub
 目标：在我本机起一个本地实例，能打开首页、能进管理后台，然后告诉我日常怎么维护。
 
 环境：Windows，Node 22。默认端口 8123（我本机 8123 可能已被占用，先查再决定）。

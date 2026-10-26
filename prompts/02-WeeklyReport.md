@@ -11,7 +11,7 @@
 ## 可复制 prompt
 
 ```text
-仓库：https://github.com/A13612812330/GH-WeeklyReport
+仓库：https://github.com/GHZS-Project/GH-WeeklyReport
 目标：把它跑起来，并教我怎么把手上自己的周报 Excel 喂进去。
 
 环境：Windows，Node 22。这个项目零依赖，不需要 npm install。

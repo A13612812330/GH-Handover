@@ -4,8 +4,8 @@
 
 | 仓库 | 角色 |
 |---|---|
-| [`GH-GameGather-APP`](https://github.com/A13612812330/GH-GameGather-APP) | 前端**桌面成品**（Electron）。Release `v28` 262 MB，解压双击 `GameIntel.exe` 就能用 |
-| [`GH-GameGather-UPSTREAM`](https://github.com/A13612812330/GH-GameGather-UPSTREAM) | 后端**数据服务**：Express + 15 个抓取器 + 93.6 MB JSON 索引快照 |
+| [`GH-GameGather-APP`](https://github.com/GHZS-Project/GH-GameGather-APP) | 前端**桌面成品**（Electron）。Release `v28` 262 MB，解压双击 `GameIntel.exe` 就能用 |
+| [`GH-GameGather-UPSTREAM`](https://github.com/GHZS-Project/GH-GameGather-UPSTREAM) | 后端**数据服务**：Express + 15 个抓取器 + 93.6 MB JSON 索引快照 |
 
 **关键认知**：只 clone APP 仓库是跑不起来的（那是外壳源码）。要完整体验，装 Release 包；要改数据逻辑，起 UPSTREAM。
 
@@ -17,8 +17,8 @@
 
 ```text
 我要接手一个 PC/手游情报站项目，它拆成两个仓库：
-- 前端桌面 App：https://github.com/A13612812330/GH-GameGather-APP
-- 后端数据服务：https://github.com/A13612812330/GH-GameGather-UPSTREAM
+- 前端桌面 App：https://github.com/GHZS-Project/GH-GameGather-APP
+- 后端数据服务：https://github.com/GHZS-Project/GH-GameGather-UPSTREAM
 
 环境：Windows，Node 22。
 

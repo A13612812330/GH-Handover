@@ -33,7 +33,7 @@
 
 **什么时候用**：刚接手、不知道从哪开始、想先要一份"我该先跑哪个"的判断。
 
-**用法**：把下面整段复制，连同 `https://github.com/A13612812330/GH-Handover` 一起发给 AI。
+**用法**：把下面整段复制，连同 `https://github.com/GHZS-Project/GH-Handover` 一起发给 AI。
 
 ---
 
@@ -41,7 +41,7 @@
 
 ```text
 我要接手一批 GitHub 项目，账号 A13612812330 下所有 GH- 开头的仓库，共 10 个。
-交接总入口在这里：https://github.com/A13612812330/GH-Handover
+交接总入口在这里：https://github.com/GHZS-Project/GH-Handover
 
 请先做三件事，全部做完再问我下一步，中间不要改任何文件：
 
@@ -81,7 +81,7 @@
 ### 可复制 prompt
 
 ```text
-仓库：https://github.com/A13612812330/GH-CloudGame
+仓库：https://github.com/GHZS-Project/GH-CloudGame
 目标：在我本机完整跑通三源周报流水线，先跑仓库自带的样例数据，确认能出看板和 Excel。
 
 环境：Windows，Git Bash，Node 22，Python 3.11 或 3.13。
@@ -132,7 +132,7 @@
 ### 可复制 prompt
 
 ```text
-仓库：https://github.com/A13612812330/GH-WeeklyReport
+仓库：https://github.com/GHZS-Project/GH-WeeklyReport
 目标：把它跑起来，并教我怎么把手上自己的周报 Excel 喂进去。
 
 环境：Windows，Node 22。这个项目零依赖，不需要 npm install。
@@ -172,7 +172,7 @@
 ### 可复制 prompt
 
 ```text
-仓库：https://github.com/A13612812330/GH-KomoSkill
+仓库：https://github.com/GHZS-Project/GH-KomoSkill
 目标：把这套协作规范装到我的 AI 环境里，让我以后让你干活时你按它的规矩来。
 
 环境：Windows，Python 3.11+。
@@ -212,7 +212,7 @@
 ### 可复制 prompt
 
 ```text
-仓库：https://github.com/A13612812330/GH-Gamehub
+仓库：https://github.com/GHZS-Project/GH-Gamehub
 目标：在我本机起一个本地实例，能打开首页、能进管理后台，然后告诉我日常怎么维护。
 
 环境：Windows，Node 22。默认端口 8123（我本机 8123 可能已被占用，先查再决定）。
@@ -249,8 +249,8 @@
 
 | 仓库 | 角色 |
 |---|---|
-| [`GH-GameGather-APP`](https://github.com/A13612812330/GH-GameGather-APP) | 前端**桌面成品**（Electron）。Release `v28` 262 MB，解压双击 `GameIntel.exe` 就能用 |
-| [`GH-GameGather-UPSTREAM`](https://github.com/A13612812330/GH-GameGather-UPSTREAM) | 后端**数据服务**：Express + 15 个抓取器 + 93.6 MB JSON 索引快照 |
+| [`GH-GameGather-APP`](https://github.com/GHZS-Project/GH-GameGather-APP) | 前端**桌面成品**（Electron）。Release `v28` 262 MB，解压双击 `GameIntel.exe` 就能用 |
+| [`GH-GameGather-UPSTREAM`](https://github.com/GHZS-Project/GH-GameGather-UPSTREAM) | 后端**数据服务**：Express + 15 个抓取器 + 93.6 MB JSON 索引快照 |
 
 **关键认知**：只 clone APP 仓库是跑不起来的（那是外壳源码）。要完整体验，装 Release 包；要改数据逻辑，起 UPSTREAM。
 
@@ -262,8 +262,8 @@
 
 ```text
 我要接手一个 PC/手游情报站项目，它拆成两个仓库：
-- 前端桌面 App：https://github.com/A13612812330/GH-GameGather-APP
-- 后端数据服务：https://github.com/A13612812330/GH-GameGather-UPSTREAM
+- 前端桌面 App：https://github.com/GHZS-Project/GH-GameGather-APP
+- 后端数据服务：https://github.com/GHZS-Project/GH-GameGather-UPSTREAM
 
 环境：Windows，Node 22。
 
@@ -309,7 +309,7 @@
 ### 可复制 prompt
 
 ```text
-仓库：https://github.com/A13612812330/GH-GameSearch
+仓库：https://github.com/GHZS-Project/GH-GameSearch
 这是一个内部 Android 游戏信息查询 App（Kotlin）。先读 README.md 和 SECURITY.md 再动手。
 
 目标分两条，先回答我第一条，等我确认再进第二条。
@@ -355,7 +355,7 @@
 ### 可复制 prompt
 
 ```text
-仓库：https://github.com/A13612812330/GH-GameNews
+仓库：https://github.com/GHZS-Project/GH-GameNews
 目标：先在不配飞书的情况下把采集和海报跑通，推送最后再接。
 
 环境：Windows，Node 22。注意仓库 177 MB，clone 慢，用 --depth 1 浅克隆。
@@ -401,7 +401,7 @@
 ### 可复制 prompt
 
 ```text
-仓库：https://github.com/A13612812330/GH-NewGameWIki
+仓库：https://github.com/GHZS-Project/GH-NewGameWIki
 目标：跑起来，并且让我理解它的数据模型和排期逻辑（这是我接手后最可能要改的部分）。
 
 环境：Windows，Node 22。端口 64111。
@@ -445,7 +445,7 @@
 ### 可复制 prompt
 
 ```text
-仓库：https://github.com/A13612812330/GH-Game-Puton
+仓库：https://github.com/GHZS-Project/GH-Game-Puton
 这是一个 Windows 桌面工具（Electron），用来批量往公司游戏后台上架导入数据。
 注意：这个仓库没有 Release 成品包，必须自己打包才能运行。
 

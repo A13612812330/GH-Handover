@@ -13,26 +13,26 @@
 
 | # | 项目 | 是什么 | 形态 | 上手难度 |
 |---|---|---|---|---|
-| 1 | [`GH-Gamehub`](https://github.com/A13612812330/GH-Gamehub) | 单机游戏聚合站：机地 + XDGAME 的游戏、MOD、存档、修改器、模拟器配置，共 6 页，带管理后台 | Node 服务（8123） | ⚠️ 装一次依赖 |
-| 2 | [`GH-GameGather-APP`](https://github.com/A13612812330/GH-GameGather-APP) | PC/手游情报站 + 资源索引 + aria2 下载的 **Electron 桌面成品** | 桌面 App | ✅ 开箱即用 |
-| 3 | [`GH-GameGather-UPSTREAM`](https://github.com/A13612812330/GH-GameGather-UPSTREAM) | 第 2 项的**配套数据服务**：Express + 15 个抓取器 + 93.6 MB JSON 索引快照 | Node 服务 | ⚠️ 装一次依赖 |
-| 4 | [`GH-GameNews`](https://github.com/A13612812330/GH-GameNews) | 资讯采集 → 今日简讯 → 日报/周报海报 → 飞书投递，对接 7 个平台，含定时调度 | React + Express | ⚠️ 装一次依赖 |
-| 5 | [`GH-NewGameWIki`](https://github.com/A13612812330/GH-NewGameWIki) | 游戏资讯 / 活动 / **排期**管理，8 个平台采集 → SQLite → 后台 | React + Vite + Express（64111） | ⚠️ 装一次依赖 |
-| 6 | [`GH-GameSearch`](https://github.com/A13612812330/GH-GameSearch) | 内部 Android 游戏信息查询 App，按后台账号权限读数据 | Android APK | ✅ 开箱即用 |
+| 1 | [`GH-Gamehub`](https://github.com/GHZS-Project/GH-Gamehub) | 单机游戏聚合站：机地 + XDGAME 的游戏、MOD、存档、修改器、模拟器配置，共 6 页，带管理后台 | Node 服务（8123） | ⚠️ 装一次依赖 |
+| 2 | [`GH-GameGather-APP`](https://github.com/GHZS-Project/GH-GameGather-APP) | PC/手游情报站 + 资源索引 + aria2 下载的 **Electron 桌面成品** | 桌面 App | ✅ 开箱即用 |
+| 3 | [`GH-GameGather-UPSTREAM`](https://github.com/GHZS-Project/GH-GameGather-UPSTREAM) | 第 2 项的**配套数据服务**：Express + 15 个抓取器 + 93.6 MB JSON 索引快照 | Node 服务 | ⚠️ 装一次依赖 |
+| 4 | [`GH-GameNews`](https://github.com/GHZS-Project/GH-GameNews) | 资讯采集 → 今日简讯 → 日报/周报海报 → 飞书投递，对接 7 个平台，含定时调度 | React + Express | ⚠️ 装一次依赖 |
+| 5 | [`GH-NewGameWIki`](https://github.com/GHZS-Project/GH-NewGameWIki) | 游戏资讯 / 活动 / **排期**管理，8 个平台采集 → SQLite → 后台 | React + Vite + Express（64111） | ⚠️ 装一次依赖 |
+| 6 | [`GH-GameSearch`](https://github.com/GHZS-Project/GH-GameSearch) | 内部 Android 游戏信息查询 App，按后台账号权限读数据 | Android APK | ✅ 开箱即用 |
 
 ### B. 运营与数据工具（3 个）
 
 | # | 项目 | 是什么 | 形态 | 上手难度 |
 |---|---|---|---|---|
-| 7 | [`GH-Game-Puton`](https://github.com/A13612812330/GH-Game-Puton) | Windows **游戏后台上架批量导入**工具（Electron），填 `and-admin.ghzs.com` 已授权后台 | 桌面 App | 🔶 需自己打包 |
-| 8 | [`GH-CloudGame`](https://github.com/A13612812330/GH-CloudGame) | 端游云游戏**三源周报**可复刻工程（神策搜索 / 鲸云下载 / SteamDB 销量），含脚本、词库、口径与 4 期产出 | Python 流水线 | ✅ 开箱即用 |
-| 9 | [`GH-WeeklyReport`](https://github.com/A13612812330/GH-WeeklyReport) | Excel 周报分析：当周 / 跨周汇总 / 收益汇总 / 趋势图 | 零依赖 Node（8787） | ✅ 开箱即用 |
+| 7 | [`GH-Game-Puton`](https://github.com/GHZS-Project/GH-Game-Puton) | Windows **游戏后台上架批量导入**工具（Electron），填 `and-admin.ghzs.com` 已授权后台 | 桌面 App | 🔶 需自己打包 |
+| 8 | [`GH-CloudGame`](https://github.com/GHZS-Project/GH-CloudGame) | 端游云游戏**三源周报**可复刻工程（神策搜索 / 鲸云下载 / SteamDB 销量），含脚本、词库、口径与 4 期产出 | Python 流水线 | ✅ 开箱即用 |
+| 9 | [`GH-WeeklyReport`](https://github.com/GHZS-Project/GH-WeeklyReport) | Excel 周报分析：当周 / 跨周汇总 / 收益汇总 / 趋势图 | 零依赖 Node（8787） | ✅ 开箱即用 |
 
 ### C. 通用方法论（1 个）
 
 | # | 项目 | 是什么 | 形态 | 上手难度 |
 |---|---|---|---|---|
-| 10 | [`GH-KomoSkill`](https://github.com/A13612812330/GH-KomoSkill) | **AI 协作工作法技能包**（非业务工具）：六阶段门禁 + 证据纪律 + 防失忆，Codex / WorkBuddy / Claude 通用 | Python 脚本 | ✅ 开箱即用 |
+| 10 | [`GH-KomoSkill`](https://github.com/GHZS-Project/GH-KomoSkill) | **AI 协作工作法技能包**（非业务工具）：六阶段门禁 + 证据纪律 + 防失忆，Codex / WorkBuddy / Claude 通用 | Python 脚本 | ✅ 开箱即用 |
 
 ---
 
@@ -42,16 +42,16 @@
 
 ```bash
 # 1. 云端三源周报 —— 不需要任何密钥，仓库自带两期真实样例
-git clone https://github.com/A13612812330/GH-CloudGame.git && cd GH-CloudGame
+git clone https://github.com/GHZS-Project/GH-CloudGame.git && cd GH-CloudGame
 pip install -r requirements.txt && npm i jsdom
 cd pipeline && python 09_run_all.py        # 约 104 秒，产出看板 + Excel
 
 # 2. 周报分析工具 —— 零依赖
-git clone https://github.com/A13612812330/GH-WeeklyReport.git && cd GH-WeeklyReport
+git clone https://github.com/GHZS-Project/GH-WeeklyReport.git && cd GH-WeeklyReport
 node server/server.mjs                      # 打开 http://127.0.0.1:8787
 
 # 3. 技能包自检 —— 零依赖
-git clone https://github.com/A13612812330/GH-KomoSkill.git && cd GH-KomoSkill
+git clone https://github.com/GHZS-Project/GH-KomoSkill.git && cd GH-KomoSkill
 python scripts/doctor.py                    # 8 项检查
 ```
 

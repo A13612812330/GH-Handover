@@ -13,7 +13,7 @@
 ## 可复制 prompt
 
 ```text
-仓库：https://github.com/A13612812330/GH-GameSearch
+仓库：https://github.com/GHZS-Project/GH-GameSearch
 这是一个内部 Android 游戏信息查询 App（Kotlin）。先读 README.md 和 SECURITY.md 再动手。
 
 目标分两条，先回答我第一条，等我确认再进第二条。

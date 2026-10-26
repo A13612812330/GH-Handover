@@ -14,7 +14,7 @@
 ## 可复制 prompt
 
 ```text
-仓库：https://github.com/A13612812330/GH-GameNews
+仓库：https://github.com/GHZS-Project/GH-GameNews
 目标：先在不配飞书的情况下把采集和海报跑通，推送最后再接。
 
 环境：Windows，Node 22。注意仓库 177 MB，clone 慢，用 --depth 1 浅克隆。
